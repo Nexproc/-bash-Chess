@@ -1,7 +1,7 @@
 class ComputerPlayer < HumanPlayer
-  PIECE_VALUES = {Pawn => 1, Knight => 2,
-                  Bishop => 3, Rook => 4,
-                  Queen => 5, King => 6}
+  PIECE_VALUES = {Pawn => 1, Knight => 5,
+                  Bishop => 10, Rook => 20,
+                  Queen => 40, King => 100}
   def play_turn
     possible_moves = find_all_moves
     begin
