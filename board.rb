@@ -6,7 +6,7 @@ require 'io/console'
 
 class Board
   attr_reader :teams
-  
+
   def initialize(pop = true)
     @grid = Array.new(8) { Array.new(8) { EmptySquare.new } }
     @cursor = [0, 0]
@@ -39,20 +39,30 @@ class Board
     grid.each_with_index do |row, i|
       print "#{8 - i} "
       row.each_with_index do |el, j|
-        color = (i + j).even? ? :yellow : :cyan
-        color = :red if [i, j] == cursor
-        unless self[cursor].empty?
-          if self[cursor].moves.include?([i, j]) && self[cursor].color == turn_color
-            color = :light_red
-          end
-        end
-        color = :red if [i, j] == end_cursor
-        print " #{el.to_s} ".colorize(:background => color)
+        render_square(el, [i, j], turn_color)
       end
       puts ""
     end
     display_check
     nil
+  end
+
+  def render_square(el, pos, turn_color)
+    color = (pos[0] + pos[1]).even? ? :yellow : :cyan
+    color = :light_green if pos == cursor
+    color = path_highlight(color, pos, turn_color)
+    color = :light_green if pos == end_cursor
+    print " #{el.to_s} ".colorize(background: color)
+  end
+
+  def path_highlight(color, pos, turn_color)
+    unless self[cursor].empty?
+      if self[cursor].moves.include?(pos) && self[cursor].color == turn_color
+        return :green
+      end
+    end
+
+    color
   end
 
   def in_check?(color)
