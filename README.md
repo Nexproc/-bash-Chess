@@ -11,6 +11,6 @@ Make sure you have Ruby installed. The best tutorial I've found was: [Ruby Insta
 ## Controls
 - Use the arrow keys to move the cursor across the board.
 - Select a piece with `enter`
-- Move the cursor to a valid position, highlighted by darker, green squares.
+- Move the cursor to a valid position; highlighted by darker, green squares.
 - Press `enter` again to select your piece placement.
-- If you wish to cancel a move, just select a move at an invalid position or select the position of you current piece.
+- Want to cancel a move? Just select a move at an invalid position or select the position of you current piece.
