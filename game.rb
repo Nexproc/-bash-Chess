@@ -34,3 +34,5 @@ class Game
 
   attr_reader :board, :players
 end
+
+Game.new.play
