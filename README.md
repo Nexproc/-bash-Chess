@@ -1,5 +1,5 @@
 # $bash Chess
-###How to get started
+### How to get started
 Make sure you have Ruby installed. The best tutorial I've found was: [Ruby Installation Tutorial](http://installrails.com/steps)
 - Download the ruby chess file [here]()
 - Unzip the file
